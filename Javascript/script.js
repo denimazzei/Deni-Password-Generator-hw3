@@ -20,7 +20,7 @@ var passwordGeneration = function () {
   }
 
   return password;
-}
+};
 
 //Then I need a function call to retrieve the password length which is used in the function above.//
 var passwordLength = function() {
@@ -78,14 +78,14 @@ var charaInclusions = function () {
 // This should populate the document with the result.//
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// The function to write the password that's been generated to the document//
 function writePassword() {
-  var password = generatePassword();
+  var password = passwordGeneration();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
+// Add event listener to generate button to activate the series of prompts// 
 generateBtn.addEventListener("click", writePassword);

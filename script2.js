@@ -1,4 +1,3 @@
- 
 //I need to generate a Password//
 var password = "";
 
@@ -23,43 +22,42 @@ var passwordGeneration = function() {
   return password;
 };
 
-//This is the function call that will retrieve the password length//
+//This is the function call that will retrieve the password length to be used in the function above//
 var passwordLength = function() {
 
-  //Within, we have to prompt the user to enter the desired character length.//
+  //Within this function, I must prompt the user to enter the desired character length within the parameters.//
   var lengthPass = prompt("Please enter a number for how long you want your password to be. It MUST Be Between 8 and 128 characters long.");
 
-  //Next, lets validate the user input(Whether user entered invalid length or entered nothing at all)
+  //Then I have to validate the user choice - does it meet the criteria?//
   if (lengthPass < 8 || lengthPass > 128 || lengthPass === "") {
-    alert("Invalid Length Entry. Length Must Be Between 8 and 128 Characters Long.")
-    return passwordLength;
+    alert("Oops! Invalid entry. Try again. Length must be between 8 and 128 characters long.");
+    return prompt;
   }
 
-  //This turns string into number. Note:refer to documentation if im still confused later.
+  //Then if the user selction is valid, I need to ensure their selection is a whole number.//
   lengthPass = Math.floor(Number(lengthPass));
 
-  //This will send data from this function to layout function!
   return lengthPass;
 }
 
-//Function That will determine included Character sets
+//I need to define the types of special characters to include in the password.//
 var charaInclusions = function() {
-  //String to send back inclusions at end
+  //String to send back inclusions at end//
   var passwordInclusions = "";
 
-  //Character Sets
+  //Then identify the special character Sets//
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "0123456789";
   var specialChara = "~`!@#$%^&*+<?/;:(=)|{";
 
-  //Ask to include characters(Confirms or Prompts?)
-  var confirmLower = confirm("Include Lower Case Characters?");
-  var confirmUpper = confirm("Include Upper Case Characters");
-  var confirmNumber = confirm("Inlcude Numbers?");
-  var confirmSpecial = confirm("Include Special Characters?");
+  //Then the prompt to ask to include characters//
+  var confirmLower = confirm("Want to include Lower Case Characters?");
+  var confirmUpper = confirm("Want to include Upper Case Characters");
+  var confirmNumber = confirm("Want to inlcude Numbers?");
+  var confirmSpecial = confirm("Want to include Special Characters?");
 
-  //Validate Selections
+  //Then validate these selections//
   if (confirmLower == true) {
     passwordInclusions += lowerCase;
   }
@@ -73,14 +71,14 @@ var charaInclusions = function() {
     passwordInclusions += specialChara;
   }
 
-  //Send back results
+  //Send the results//
   return passwordInclusions;
 }
 
-// Assignment Code Ending
+// Then we need to populate document with result//
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// The function to write the password that's been generated to the document//
 function writePassword() {
   var password = passwordGeneration();
   var passwordText = document.querySelector("#password");
@@ -89,5 +87,5 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+// Add event listener to generate button to activate the series of prompts// 
 generateBtn.addEventListener("click", writePassword);
