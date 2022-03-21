@@ -1,4 +1,4 @@
-# Deni-Password-Generator-hw3
+# Deni-Password-Generator
 
 Per this assignment, I was instructed to modify and create javascript code to generate a safe password for employees through a specified webpage. 
 
